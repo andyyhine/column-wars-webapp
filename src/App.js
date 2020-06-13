@@ -1,6 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import icons from './fighterIcons';
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--){
@@ -56,6 +59,7 @@ function App() {
           <br></br>
           <br></br>
           <br></br>
+          <img src = {icons[1]}/>
           <br></br>
           <br></br>
           <br></br>
