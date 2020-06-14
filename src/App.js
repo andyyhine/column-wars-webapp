@@ -42,10 +42,10 @@ function App() {
   
   return (
     <div className = "App">
-      {firstRows.map(row => <Row>{row.fighters.join(" ")}</Row>)}
-      <img src = {icons[1]}/>
-      <img src = {icons[64]}/>
-      <Row>{lastRow.fighters.join(" ")}</Row>
+      <Container fluid>
+        {firstRows.map(row => <Row>{row.fighters.map(fighter => <Col><img src = {icons[fighter]}/></Col>)}</Row>)}
+        <Row>{lastRow.fighters.map(fighter => <Col><img src = {icons[fighter]}/></Col>)}</Row>
+      </Container>
     </div>
   );
 
