@@ -36,27 +36,18 @@ function getRandomRows(rosterSize) {
 
 function App() {
 
-    let rows = getRandomRows(80);
-    let firstRows = rows.slice(0, rows.length - 2);
-    let lastRow = rows[rows.length - 1];
-
-      return (
-        <div className = "App">
-          {firstRows.map(row => <div>{row.fighters.join("\n")}</div>)}
-          <br></br>
-          <br></br>
-          <br></br>
-          <img src = {icons[1]}/>
-          <img src = {icons[64]}/>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <div>
-            {lastRow.fighters.join("  ")}
-          </div>
-        </div>
-      );
+  let rows = getRandomRows(80);
+  let firstRows = rows.slice(0, rows.length - 2);
+  let lastRow = rows[rows.length - 1];
+  
+  return (
+    <div className = "App">
+      {firstRows.map(row => <Row>{row.fighters.join(" ")}</Row>)}
+      <img src = {icons[1]}/>
+      <img src = {icons[64]}/>
+      <Row>{lastRow.fighters.join(" ")}</Row>
+    </div>
+  );
 
 }
 
