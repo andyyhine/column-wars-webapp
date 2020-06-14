@@ -60,6 +60,7 @@ function App() {
           <br></br>
           <br></br>
           <img src = {icons[1]}/>
+          <img src = {icons[64]}/>
           <br></br>
           <br></br>
           <br></br>
