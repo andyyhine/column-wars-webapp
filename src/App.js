@@ -26,7 +26,7 @@ function getRandomRows(rosterSize) {
 
   let rows = [];
 
-  for(let i=1; i<rosterSize+1; i+=12){
+  for(let i=0; i<rosterSize+1; i+=12){
       let rowValues = values.slice(i, i+12);
       rows.push(new FighterRow(rowValues));
   }
@@ -36,15 +36,15 @@ function getRandomRows(rosterSize) {
 
 function App() {
 
-  let rows = getRandomRows(80);
-  let firstRows = rows.slice(0, rows.length - 2);
+  let rows = getRandomRows(77);
+  let firstRows = rows.slice(0, rows.length - 1);
   let lastRow = rows[rows.length - 1];
   
   return (
     <div className = "App">
-      <Container fluid>
-        {firstRows.map(row => <Row>{row.fighters.map(fighter => <Col><img src = {icons[fighter]}/></Col>)}</Row>)}
-        <Row>{lastRow.fighters.map(fighter => <Col><img src = {icons[fighter]}/></Col>)}</Row>
+      <Container>
+        {firstRows.map(row => <Row>{row.fighters.map(fighter => <Col><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
+        <Row>{lastRow.fighters.map(fighter => <Col><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
       </Container>
     </div>
   );

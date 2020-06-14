@@ -69,6 +69,7 @@ import richter from './icons/richter.png';
 import kingKRool from './icons/king-k-rool.png';
 import isabelle from './icons/isabelle.png';
 import incineroar from './icons/incineroar.png';
+import random from './icons/random.png';
 import joker from './icons/joker.png';
 import hero from './icons/hero.png';
 import banjoKazzoie from './icons/banjo-kazooie.png';
@@ -148,11 +149,12 @@ const icons = {
     69: kingKRool,
     70: isabelle,
     71: incineroar,
-    72: joker,
-    73: hero,
-    74: banjoKazzoie,
-    75: terry,
-    76: byleth
+    72: random,
+    73: joker,
+    74: hero,
+    75: banjoKazzoie,
+    76: terry,
+    77: byleth
 };
 
 export default icons;
