@@ -12,50 +12,37 @@ function shuffle(array) {
   }
 }
 
-class Column {
+class FighterRow {
   constructor(fighters) {
       this.fighters = fighters;
   }
 }
 
-function getRandomColumns(rosterSize) {
+//always 7 rows, 6 of 12 (72) then the rest on row 7
+function getRandomRows(rosterSize) {
 
   let values = Array.from(Array(rosterSize), (_, index) => index + 1)
   shuffle(values);
 
-  let columns = [];
+  let rows = [];
 
-  for(let i=1; i<rosterSize+1; i+=6){
-      let columnValues = values.slice(i, i+6);
-      columns.push(new Column(columnValues));
+  for(let i=1; i<rosterSize+1; i+=12){
+      let rowValues = values.slice(i, i+12);
+      rows.push(new FighterRow(rowValues));
   }
 
-  //combine values of last two columns if they need to be inflated
-  if(columns.length == 14){
-      let col1 = columns[12].fighters;
-      let col2 = columns[13].fighters;
-      let allFighters = col1.concat(col2);
-      columns.splice(-2);
-      columns.push(new Column(allFighters));
-  }
-
-  return columns;
+  return rows;
 }
 
 function App() {
 
-    let columns = getRandomColumns(80);
-
-    let needsBottom = columns[columns.length - 1].fighters.length > 6
-
-    if(needsBottom){
-
-      let firstColumns = columns.slice(0, columns.length - 2);
-      let lastColumn = columns[columns.length - 1];
+    let rows = getRandomRows(80);
+    let firstRows = rows.slice(0, rows.length - 2);
+    let lastRow = rows[rows.length - 1];
 
       return (
         <div className = "App">
-          {firstColumns.map(column => <div class = "column">{column.fighters.join("\n")}</div>)}
+          {firstRows.map(row => <div>{row.fighters.join("\n")}</div>)}
           <br></br>
           <br></br>
           <br></br>
@@ -65,18 +52,12 @@ function App() {
           <br></br>
           <br></br>
           <br></br>
-          <div class = "bottomColumn">
-            {lastColumn.fighters.join("  ")}
+          <div>
+            {lastRow.fighters.join("  ")}
           </div>
         </div>
       );
-    }
 
-    return (
-      <div className="App">
-      {columns.map(column => <div class = "column">{column.fighters.join("\n")}</div>)}
-      </div>
-    );
 }
 
 export default App;
