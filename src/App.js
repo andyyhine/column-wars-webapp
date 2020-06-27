@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Row, Col } from 'antd';
 import icons from './fighterIcons';
 
 function shuffle(array) {
@@ -42,10 +40,8 @@ function App() {
   
   return (
     <div className = "App">
-      <Container>
-        {firstRows.map(row => <Row>{row.fighters.map(fighter => <Col><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
-        <Row>{lastRow.fighters.map(fighter => <Col><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
-      </Container>
+        {firstRows.map(row => <Row gutter={16}>{row.fighters.map(fighter => <Col span={8}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
+        <Row gutter={16}>{lastRow.fighters.map(fighter => <Col span={8}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
     </div>
   );
 
