@@ -1,6 +1,6 @@
 import React from 'react';
+import { Row, Col, Button } from 'antd';
 import './App.css';
-import { Row, Col } from 'antd';
 import icons from './fighterIcons';
 
 function shuffle(array) {
@@ -40,8 +40,13 @@ function App() {
   
   return (
     <div className = "App">
-        {firstRows.map(row => <Row gutter={16}>{row.fighters.map(fighter => <Col span={8}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
-        <Row gutter={16}>{lastRow.fighters.map(fighter => <Col span={8}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+      <div class="selectionPanels" id="grid">
+        {firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
+      </div>
+      <div class="selectionPanels" id="lastCol">
+          <h2>Last Row:</h2>
+          <Row justify="center">{lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+        </div>
     </div>
   );
 
