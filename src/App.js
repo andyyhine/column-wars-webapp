@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Button } from 'antd';
 import './App.css';
 import icons from './fighterIcons';
@@ -32,23 +32,25 @@ function getRandomRows(rosterSize) {
   return rows;
 }
 
-function App() {
+class App extends Component{
 
-  let rows = getRandomRows(77);
-  let firstRows = rows.slice(0, rows.length - 1);
-  let lastRow = rows[rows.length - 1];
-  
-  return (
-    <div className = "App">
-      <div class="selectionPanels" id="grid">
-        {firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
-      </div>
-      <div class="selectionPanels" id="lastCol">
-          <h2>Last Row:</h2>
-          <Row justify="center">{lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+  render() {
+    let rows = getRandomRows(77);
+    let firstRows = rows.slice(0, rows.length - 1);
+    let lastRow = rows[rows.length - 1];
+    
+    return (
+      <div className = "App">
+        <div class="selectionPanels" id="grid">
+          {firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
         </div>
-    </div>
-  );
+        <div class="selectionPanels" id="lastCol">
+            <h2>Last Row:</h2>
+            <Row justify="center">{lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+          </div>
+      </div>
+    );
+  }
 
 }
 
