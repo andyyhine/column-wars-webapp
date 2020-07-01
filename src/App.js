@@ -34,21 +34,48 @@ function getRandomRows(rosterSize) {
 
 class App extends Component{
 
-  render() {
+  constructor(props) {
+    super(props);
+
     let rows = getRandomRows(77);
     let firstRows = rows.slice(0, rows.length - 1);
     let lastRow = rows[rows.length - 1];
-    
+
+    this.state = {
+      rows : rows,
+      firstRows : firstRows,
+      lastRow : lastRow
+    }
+  }
+
+  shuffleRows = () => {
+
+    let rows = getRandomRows(77);
+    let firstRows = rows.slice(0, rows.length - 1);
+    let lastRow = rows[rows.length - 1];
+
+    this.setState({
+      rows : rows,
+      firstRows : firstRows,
+      lastRow : lastRow
+    })
+  }
+
+  render() {
+
     return (
       <div className = "App">
         <div class="selectionPanels" id="grid">
-          {firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
+          {this.state.firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
         </div>
         <div class="selectionPanels" id="lastCol">
             <h2>Last Row:</h2>
-            <Row justify="center">{lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+            <Row justify="center">{this.state.lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
           </div>
-      </div>
+        <div>
+            <Button type="primary" danger onClick={this.shuffleRows}>Shuffle</Button>
+        </div>
+      </div>   
     );
   }
 

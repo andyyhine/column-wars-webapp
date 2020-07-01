@@ -4,13 +4,17 @@ h2 {
     text-align: center;
 }
 
+div {
+    text-align: center;
+}
+
 .selectionPanels {
     padding-left: 300px;
-    padding-right: 300px
+    padding-right: 300px;
+    padding-bottom: 25px;
 }
 
 #grid {
     padding-top:100px;
-    padding-bottom: 100px;
 }
 
