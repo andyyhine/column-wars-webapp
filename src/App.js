@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button, Layout } from 'antd';
 import './App.css';
 import icons from './fighterIcons';
+
+const { Header, Content, Footer} = Layout;
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--){
@@ -65,16 +67,27 @@ class App extends Component{
 
     return (
       <div className = "App">
-        <div class="selectionPanels" id="grid">
-          {this.state.firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
-        </div>
-        <div class="selectionPanels" id="lastCol">
-            <h2>Last Row:</h2>
-            <Row justify="center">{this.state.lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
-          </div>
-        <div>
-            <Button type="primary" danger onClick={this.shuffleRows}>Shuffle</Button>
-        </div>
+        <Layout className="layout">
+          <Header>
+            <h1>Column Wars</h1>
+          </Header>
+          <Content>
+            <div class="selectionPanels" id="grid">
+              {this.state.firstRows.map(row => <Row justify="center">{row.fighters.map(fighter => <Col span={2}><img src = {icons[fighter]} width="50" height ="50"/></Col>)}</Row>)}
+            </div>
+            <div class="selectionPanels" id="lastCol">
+              <h2>Last Row:</h2>
+              <Row justify="center">{this.state.lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
+            </div>
+            <div>
+              <Button type="primary" danger onClick={this.shuffleRows}>Shuffle</Button>
+            </div>
+          </Content>
+          <Footer>
+            Column Wars v1.0 Created By Andy Hine 2020
+          </Footer>
+        </Layout>
+        
       </div>   
     );
   }

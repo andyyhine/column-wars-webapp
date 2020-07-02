@@ -1,5 +1,9 @@
 @import '~antd/dist/antd.css';
 
+h1{
+    color: azure;
+}
+
 h2 {
     text-align: center;
 }
@@ -15,6 +19,6 @@ div {
 }
 
 #grid {
-    padding-top:100px;
+    padding-top:25px;
 }
 
