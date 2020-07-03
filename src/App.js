@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button, Layout } from 'antd';
+import { Row, Col, Button, Layout, Menu } from 'antd';
 import './App.css';
 import icons from './fighterIcons';
 
@@ -69,7 +69,12 @@ class App extends Component{
       <div className = "App">
         <Layout className="layout">
           <Header>
-            <h1>Column Wars</h1>
+            <div class="logo"><h3>Column Wars</h3></div>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+              <Menu.Item key="1">Play</Menu.Item>
+              <Menu.Item key="2">Roster</Menu.Item>
+              <Menu.Item key="3">HowTo</Menu.Item>
+            </Menu>
           </Header>
           <Content>
             <div class="selectionPanels" id="grid">
@@ -79,7 +84,7 @@ class App extends Component{
               <h2>Last Row:</h2>
               <Row justify="center">{this.state.lastRow.fighters.map(fighter => <Col span={3}><img src = {icons[fighter]} width="50" height="50"/></Col>)}</Row>
             </div>
-            <div>
+            <div class="buttonWrapper">
               <Button type="primary" danger onClick={this.shuffleRows}>Shuffle</Button>
             </div>
           </Content>

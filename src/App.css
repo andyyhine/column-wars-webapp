@@ -1,6 +1,11 @@
 @import '~antd/dist/antd.css';
 
-h1{
+Header { 
+    position: 'fixed';
+    width: '100%'
+}
+
+h3{
     color: azure;
 }
 
@@ -8,7 +13,20 @@ h2 {
     text-align: center;
 }
 
-div {
+.logo {
+    width: 240px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    text-align: center;
+    float: left;
+}
+
+.buttonWrapper {
+    text-align: center;
+}
+
+Footer {
     text-align: center;
 }
 
