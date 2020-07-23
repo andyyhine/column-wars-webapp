@@ -18,7 +18,6 @@ class FighterRow {
   }
 }
 
-//always 7 rows, 6 of 12 (72) then the rest on row 7
 function getRandomRows(rosterSize) {
 
   let values = Array.from(Array(rosterSize), (_, index) => index + 1)
@@ -39,7 +38,7 @@ class App extends Component{
   constructor(props) {
     super(props);
 
-    let rows = getRandomRows(77);
+    let rows = getRandomRows(78);
     let firstRows = rows.slice(0, rows.length - 1);
     let lastRow = rows[rows.length - 1];
 
@@ -52,7 +51,7 @@ class App extends Component{
 
   shuffleRows = () => {
 
-    let rows = getRandomRows(77);
+    let rows = getRandomRows(78);
     let firstRows = rows.slice(0, rows.length - 1);
     let lastRow = rows[rows.length - 1];
 
