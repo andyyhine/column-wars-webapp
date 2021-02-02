@@ -76,6 +76,7 @@ import banjoKazzoie from './icons/banjo-kazooie.png';
 import terry from './icons/terry.png';
 import byleth from './icons/byleth.png';
 import minmin from './icons/minmin.png';
+import sephiroth from './icons/sephiroth.png';
 
 
 const icons = {
@@ -156,7 +157,8 @@ const icons = {
     75: banjoKazzoie,
     76: terry,
     77: byleth,
-    78: minmin
+    78: minmin,
+    79: sephiroth
 };
 
 export default icons;

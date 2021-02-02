@@ -38,7 +38,7 @@ class App extends Component{
   constructor(props) {
     super(props);
 
-    let rows = getRandomRows(78);
+    let rows = getRandomRows(79);
     let firstRows = rows.slice(0, rows.length - 1);
     let lastRow = rows[rows.length - 1];
 
@@ -51,7 +51,7 @@ class App extends Component{
 
   shuffleRows = () => {
 
-    let rows = getRandomRows(78);
+    let rows = getRandomRows(79);
     let firstRows = rows.slice(0, rows.length - 1);
     let lastRow = rows[rows.length - 1];
 
